@@ -1,10 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:dpbo/models/ServiceModel.dart';
+import 'package:flutter_svg/svg.dart';
+import 'jemput_sampah.dart';
+import 'antar_sampah.dart';
 
 class AnorganikServiceSelection extends StatelessWidget {
   List <ServiceModel> service = [
-    ServiceModel('Jemput Sampah', 'assets/icons/pickup.svg', (){},),
-    ServiceModel('Antar Sampah', 'assets/icons/deliver.svg', (){},), 
+    ServiceModel(
+      'Jemput Sampah',
+      'assets/icons/pickup.svg',
+      (context) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => JemputSampahPage()),
+        );
+      },
+    ),
+    ServiceModel(
+      'Antar Sampah',
+      'assets/icons/deliver.svg',
+      (context) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => AntarSampahPage()),
+        );
+      },
+    ),
   ];
   
   @override
@@ -23,12 +44,12 @@ class AnorganikServiceSelection extends StatelessWidget {
         itemCount: service.length,
         separatorBuilder: (context, index) => SizedBox(width: 25,),
         itemBuilder: (context, index) {
-          return service[index];
-          },
-        )
-      )
+          return service[index]; 
+        }
+       )
+     )
     );
   }
-
-
 }
+
+
