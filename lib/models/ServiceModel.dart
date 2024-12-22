@@ -4,13 +4,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 class ServiceModel extends StatelessWidget {
   String name;
   String icon_path;
-  VoidCallback onPressed;
-  ServiceModel(this.name, this.icon_path, this.onPressed){}
+  Function(BuildContext) onPressed;
+  ServiceModel(this.name, this.icon_path, this.onPressed);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onPressed,
+      onTap: () => onPressed(context),
       child: Container(
         alignment: Alignment.center,
         width: 100,

@@ -7,6 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:dpbo/sampah-anorganik/service-selection-anorganik.dart';
 import 'package:dpbo/sampah-organik/sampah-organik.dart';
 import 'notification.dart';
+import 'profile.dart';
 
 class Homepage extends StatefulWidget {
   Homepage({super.key});
@@ -33,13 +34,13 @@ class _Homepage extends State<Homepage> {
       children: [
         SizedBox(height: 20,),
         categoriesBar(),
-        SizedBox(height: 30),
-        recNewsletter(),
+        // SizedBox(height: 30),
+        // recNewsletter(),
       ],
     ),
     Placeholder(),
     Placeholder(),
-    Placeholder(),
+    Profile(),
   ];
   void onNavbarTapped(int index) {
     setState(() {
@@ -100,87 +101,87 @@ class _Homepage extends State<Homepage> {
     );
   }
 
-  Column recNewsletter() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Rekomendasi Newsletter',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black
-                ),
-              ),
-            ],
-          ),
-        ),
-        SizedBox(height: 15,),
-        ListView.separated(
-          itemCount: newsletter.length,
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          separatorBuilder: (context, index) => SizedBox(height: 25,),
-          padding: const EdgeInsets.only(left: 20, right: 20),
-          itemBuilder: (context, index) {
-            return Container(
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(15),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.1),
-                    blurRadius: 5,
-                    offset: Offset(0, 3)
-                  )
-                ]
-              ),
-              child: Row(
-                children: [
-                  Container(
-                    height: 60,
-                    width: 60,
-                    decoration: BoxDecoration(
-                      color: Colors.grey[300],
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Image.asset(newsletter[index].imagePath, fit: BoxFit.contain,),
-                  ),
-                  SizedBox(width: 15,),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          newsletter[index].title,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 16,
-                            color: Colors.black
-                          ),
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              )
-            );
-          }
-        )
-      ],
-    );
-  }
+  // Column recNewsletter() {
+  //   return Column(
+  //     crossAxisAlignment: CrossAxisAlignment.start,
+  //     children: [
+  //       Padding(
+  //         padding: const EdgeInsets.symmetric(horizontal: 20),
+  //         child: Row(
+  //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //           children: [
+  //             Text(
+  //               'Rekomendasi Newsletter',
+  //               style: TextStyle(
+  //                 fontSize: 18,
+  //                 fontWeight: FontWeight.w600,
+  //                 color: Colors.black
+  //               ),
+  //             ),
+  //           ],
+  //         ),
+  //       ),
+  //       SizedBox(height: 15,),
+  //       ListView.separated(
+  //         itemCount: newsletter.length,
+  //         shrinkWrap: true,
+  //         physics: NeverScrollableScrollPhysics(),
+  //         separatorBuilder: (context, index) => SizedBox(height: 25,),
+  //         padding: const EdgeInsets.only(left: 20, right: 20),
+  //         itemBuilder: (context, index) {
+  //           return Container(
+  //             padding: const EdgeInsets.all(10),
+  //             decoration: BoxDecoration(
+  //               color: Colors.white,
+  //               borderRadius: BorderRadius.circular(15),
+  //               boxShadow: [
+  //                 BoxShadow(
+  //                   color: Colors.grey.withOpacity(0.1),
+  //                   blurRadius: 5,
+  //                   offset: Offset(0, 3)
+  //                 )
+  //               ]
+  //             ),
+  //             child: Row(
+  //               children: [
+  //                 Container(
+  //                   height: 60,
+  //                   width: 60,
+  //                   decoration: BoxDecoration(
+  //                     color: Colors.grey[300],
+  //                     borderRadius: BorderRadius.circular(10),
+  //                   ),
+  //                   child: Image.asset(newsletter[index].imagePath, fit: BoxFit.contain,),
+  //                 ),
+  //                 SizedBox(width: 15,),
+  //                 Expanded(
+  //                   child: Column(
+  //                     crossAxisAlignment: CrossAxisAlignment.start,
+  //                     children: [
+  //                       Text(
+  //                         newsletter[index].title,
+  //                         style: TextStyle(
+  //                           fontWeight: FontWeight.w500,
+  //                           fontSize: 16,
+  //                           color: Colors.black
+  //                         ),
+  //                       )
+  //                     ],
+  //                   ),
+  //                 )
+  //               ],
+  //             )
+  //           );
+  //         }
+  //       )
+  //     ],
+  //   );
+  // }
 
 
   Column categoriesBar() {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         const Padding(
           padding: EdgeInsets.only(left: 20),
@@ -218,7 +219,7 @@ class _Homepage extends State<Homepage> {
                     color: categories[index].boxColor, borderRadius: BorderRadius.circular(16)
                   ),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Container(
                         width: 50,
