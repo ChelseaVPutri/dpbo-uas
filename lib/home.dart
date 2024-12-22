@@ -8,7 +8,8 @@ import 'package:dpbo/sampah-organik.dart';
 import 'notification.dart';
 
 class Homepage extends StatefulWidget {
-  Homepage({super.key});
+  final String username;
+  Homepage({required this.username});
 
   @override
   State<Homepage> createState() => _Homepage();
