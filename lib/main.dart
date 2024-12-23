@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'home.dart';
 
 void main() async {
-  // WidgetsFlutterBinding.ensureInitialized(); // Pastikan ini ditambahkan
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: 'Poppins'),
+      theme: ThemeData(fontFamily: 'Poppins'),  
       home: LoginScreen(),
     );
   }
