@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:dpbo/service-selection-anorganik.dart';
 import 'package:dpbo/sampah-organik.dart';
 import 'notification.dart';
+import 'profile.dart';
 
 class Homepage extends StatefulWidget {
   // final String username;
@@ -39,7 +40,7 @@ class _Homepage extends State<Homepage> {
     ),
     HalamanSampahOrganik(),
     Placeholder(),
-    Placeholder(),
+    Profile(),
   ];
   void onNavbarTapped(int index) {
     setState(() {

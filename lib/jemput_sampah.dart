@@ -1,11 +1,20 @@
 
+import 'package:dpbo/widget/JemputModel.dart';
+import 'package:dpbo/widget/dropdown.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'confirm_page.dart';
+import 'package:dpbo/widget/dropdown.dart';
 
 class JemputSampahPage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Jemput Sampah", style: TextStyle(color: Colors.white),),
+        backgroundColor: Color.fromRGBO(102, 160, 116, 1)
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
@@ -23,12 +32,11 @@ class JemputSampahPage extends StatelessWidget {
                       style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 5),
-                    Text('Jl.balblabla'),
-                    Divider(thickness: 1, color: Colors.grey),
-                    Text(
-                      'Change Options',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
+                    TextField( //AddressBox
+                    onChanged: (text) {
+                    print('First text field: $text');
+                      },
+                    ),  
                   ],
                 ),
               ),
@@ -45,7 +53,6 @@ class JemputSampahPage extends StatelessWidget {
                     child: TextField(
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
-                        hintText: '5-80',
                         border: OutlineInputBorder(),
                       ),
                     ),
@@ -57,37 +64,23 @@ class JemputSampahPage extends StatelessWidget {
 
               // Courier Container
               Container(
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                padding: const EdgeInsets.all(10.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Courier Option',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text('Premium', style: TextStyle(fontSize: 16)),
-                        Text('Rp.--', style: TextStyle(fontSize: 16)),
-                      ],
-                    ),
-                    Divider(thickness: 1, color: Colors.grey),
-                    Text(
-                      'Change Options',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-              ),
+              padding: const EdgeInsets.all(10.0),
+              child: Column( // Use Column to properly stack the widgets vertically
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Courier Option',
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      Text('Blblb', style: TextStyle(fontSize: 16)),
+                    ]
+                  ),
 
-              SizedBox(height: 10),
-
+                  SizedBox(height: 10), // Correctly specified height as a named argument
+              
               // Summary Section
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -112,28 +105,22 @@ class JemputSampahPage extends StatelessWidget {
               SizedBox(height: 20),
 
               // Button
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Colors.green,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                padding: const EdgeInsets.all(20.0),
-                child: Center(
-                  child: Text(
-                    'Jemput',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
+              JemputModelButton(
+              'Jemput', 
+              (context) {
+              Navigator.push(context,
+              MaterialPageRoute(builder: (context) => ConfirmPage()),
+                  );
+                }
               ),
-            ],
-          ),
-        ),
-      ),
+                ]
+                )
+              )
+            ]
+          )
+        )
+      )
     );
+            
   }
 }

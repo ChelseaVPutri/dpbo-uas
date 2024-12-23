@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dpbo/models/ServiceModel.dart';
 import 'package:flutter_svg/svg.dart';
-import 'jemput_sampah.dart';
+import '../jemput_sampah.dart';
 import 'antar_sampah.dart';
 
 class AnorganikServiceSelection extends StatelessWidget {
