@@ -105,7 +105,15 @@ class _RiwayatJemputSampahPageState extends State<RiwayatJemputSampah> {
                 // final jemputSampah = snapshot.data![index];
                 return ListTile(
                   title: Text('Order Number: ${order[index].jemput_id}'),
-                  subtitle: Text('Alamat: ${order[index].alamat}'),
+                  subtitle: Column(
+                    children: [
+                      Text('Alamat: ${order[index].alamat}', textAlign: TextAlign.left,),
+                      Text('Jenis Sampah: ${order[index].jenis_sampah}', textAlign: TextAlign.left),
+                      Text('Total Biaya: ${order[index].total}', textAlign: TextAlign.left),
+                      Text('Status: ${order[index].status} ', textAlign: TextAlign.left)
+                    ],
+                  )
+                  
                 );
               },
             );
