@@ -2,19 +2,16 @@
 
 Chelsea Vanianindya Putri (ChelseaVPutri) - 1313623016
 
-Micka Nurhaliza
+Micka Nurhaliza (permitchi) - 1313623025
 
-Vivia
+Vivia Marsha Syaharani - 1313623050
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+1. Repository ini merupakan tempat untuk menampung file kode project akhir mata kuliah Desain Pemograman Berbasis Objek (DPBO)
 
-A few resources to get you started if this is your first Flutter project:
+2. Desain prototype bisa dilihat di: https://www.figma.com/design/LJx8k5421pDj02PZqynaJp/dpbo?node-id=0-1&p=f&t=oSZSj0iz81FLPzdm-0
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+3. Penjelasan singkat aplikasi: user bisa membuang sampah besar dengan sistem memanggil kurir atau sistem jemput sampah dengan mengisi form jemput sampah yang ada di aplikasi
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+4. Masih terdapat kendala di pengaturan session user
