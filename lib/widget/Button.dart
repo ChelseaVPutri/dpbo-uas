@@ -7,7 +7,10 @@ class Button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ElevatedButton button = ElevatedButton(onPressed: onpressed, child: Text(label));
+    ElevatedButton button = ElevatedButton(
+      onPressed: onpressed,
+      child: Text(label)
+      );
     return button;
 
     // Container container = Container(

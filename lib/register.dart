@@ -35,7 +35,8 @@ class _RegisterScreen extends State<RegisterScreen> {
         title: Text('Register'),
         centerTitle: true,
       ),
-      body: Padding(
+      body: SingleChildScrollView(
+        child: Padding(
         padding: const EdgeInsets.all(12),
         child:Form(
           key: formKey,
@@ -44,7 +45,9 @@ class _RegisterScreen extends State<RegisterScreen> {
               ListTile(title: Text('REGISTER AKUN BARU', style: TextStyle(fontSize: 45, fontWeight: FontWeight.bold),),),
               // CustomTextField('Email', controller),
               CustomTextField('Username', _usernameController),
+              SizedBox(height: 16),
               CustomTextField('Password', _passwordController),
+              SizedBox(height: 16),
               Button('REGISTER', (){if(formKey.currentState!.validate()) register();}),
               LoginOrRegister('Sudah punya akun?', 'Login', (){
               Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
@@ -53,6 +56,8 @@ class _RegisterScreen extends State<RegisterScreen> {
           )
         )         
       )
+      )
+      
     );
   }
 }

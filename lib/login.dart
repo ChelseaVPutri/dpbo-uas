@@ -1,4 +1,5 @@
-import 'package:dpbo/home.dart';
+import 'package:dpbo/old-template-files/home.dart';
+import 'package:dpbo/home2.dart';
 import 'package:dpbo/register.dart';
 import 'package:flutter/material.dart';
 import 'widget/CustomTextField.dart';
@@ -25,7 +26,8 @@ class _LoginScreen extends State<LoginScreen> {
     var response = await db.login(Users(username: _usernameController.text, password: _passwordController.text));
     if(response == true) {
       if(!mounted) return;
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Homepage()));
+      // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Homepage()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Homepage2()));
     } else {
       setState(() {
         isLogin = true;
@@ -40,24 +42,26 @@ class _LoginScreen extends State<LoginScreen> {
         title: Text('Login'),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: EdgeInsets.all(20),
-        child: Form(
-          key: formKey,
-          child: Column(
-            children: [
-              ListTile(title: Text('LOGIN AKUN', style: TextStyle(fontSize: 45, fontWeight: FontWeight.bold),),),
-              CustomTextField('Username', _usernameController),
-              CustomTextField('Password', _passwordController),
-              const SizedBox(height: 10),
-              Button('LOGIN', (){if(formKey.currentState!.validate()) login();}),
-              LoginOrRegister('Tidak punya akun?', 'Register', (){Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterScreen()));}),
-              isLogin? Text('Username atau password salah', style: TextStyle(color: Colors.red),) : SizedBox()
-            ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(20),
+          child: Form(
+            key: formKey,
+            child: Column(
+              children: [
+                ListTile(title: Text('LOGIN AKUN', style: TextStyle(fontSize: 45, fontWeight: FontWeight.bold),),),
+                CustomTextField('Username', _usernameController),
+                SizedBox(height: 16),
+                CustomTextField('Password', _passwordController),
+                SizedBox(height: 16),
+                Button('LOGIN', (){if(formKey.currentState!.validate()) login();}),
+                LoginOrRegister('Tidak punya akun?', 'Register', (){Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterScreen()));}),
+                isLogin? Text('Username atau password salah', style: TextStyle(color: Colors.red),) : SizedBox()
+              ],
           )
-        )
-        
+        )    
       )
+    )  
     );
   }
 }
